@@ -4,70 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To do List</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-   
-    <div class="todo" id="todo">
-      <div class="toggle" id="toggle">
-        <div class="switch" id="switch">
-          
-          <div class="off" id="off">  </i></div>
-        </div>
-      </div>
-      <div class="forms" id="forms">
-        <form class="form">
-          <div class="fields" id="fields">
-            <input
-              id="ip"
-              class="ip"
-              type="text"
-              placeholder="Add new Item..."
-            />
-            <input
-              id="btn"
-              class="btn"
-              type="submit"
-              value="Add to List"
-            /><br />
-          </div> 
-        </form>
-        <div class="tasks" id="tasks">
-          <div class="task" id="task">
-            <div class="content" id="content">
-              <input
-                class="text"
-                id="text"
-                type="text"
-                value="My todo list"
-                readonly
-              />
-            </div>
-            <div class="actions" id="actions">
-              <button class="edit" type="button">edit</button>
-              <button class="delete" type="button">delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- <button class="delete">
-                    <i class="fa fa-trash-o" style="font-size:48px;color:black"></i>
-                </button>
-                     -->
-
-      <br />
+    <!-- APPPLICATION -->
+    <div class="todo__container">
+      <form class="todo__form">
+        <input type="text" placeholder="Add item" data-todo-input />
+        <button type="submit">&#43;</button>
+      </form>
+      <ul class="todo__list"></ul>
     </div>
-    
+    <!-- APPPLICATION -->
   </body>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/to-do.js"></script>
-  <script type="text/javascript" src="/switch.js"></script>
-   
+
+  <script type="text/javascript" src="./todo.js"></script>
 </html>
