@@ -1,40 +1,73 @@
-window.addEventListener("DOMContentLoaded", () => {
-  // Collect Todo List
-  const todo__list = document.querySelector(".todo__list");
-  const todo__items = document.querySelectorAll("[data-item]");
-  const todo__form = document.querySelector(".todo__form");
-  const todo__form_input = document.querySelector("[data-todo-input]");
+ 
+ window.addEventListener('load', (e) =>{
+    const form = document.querySelector("#forms");
+    const inpField = document.querySelector("#ip");
+    const listEl = document.querySelector("#tasks");
+    form.addEventListener("submit",(e) =>{
+        e.preventDefault();
+        const task = inpField.value
+         if(task ===""){
+            alert('Please Insert a Todo Item');
+            return;
+         }  
+            const taskEl = document.createElement("div");
+            taskEl.classList.add('task');
+            const contEl = document.createElement("div");
+            contEl.classList.add('content');
+            taskEl.appendChild(contEl);
 
-  // Todo Item
-  let new__item;
+    const inputEl = document.createElement("input");
+    inputEl.classList.add('text');
+    inputEl.type = "text";
+    inputEl.value=task;
+    inputEl.setAttribute = ("readonly","readonly")
 
-  const Template = (string) => {
-    const template__string = `
-      <input type="checkbox" data-done />
-      <span>${string}</span>
-    `;
-    const item = document.createElement("li");
-    item.dataset.item = "";
-    item.innerHTML = template__string;
-    return item;
-  };
+contEl.appendChild(inputEl);
+const actionsEl = document.createElement("div");
+actionsEl.classList.add("actions");
+inputEl.appendChild(actionsEl)
+ 
 
-  todo__form_input.addEventListener("keyup", (e) => {
-    new__item = Template(e.target.value);
-  });
+const editEl = document.createElement("button");
+editEl.classList.add("edit");
 
-  todo__form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    todo__list.appendChild(new__item);
-    todo__form_input.value = "";
-  });
+const deleteEl = document.createElement("button");
+deleteEl.classList.add("delete");
 
-  todo__items.forEach((todo__item) => {
-    const checkbox = todo__item.querySelector("input[data-done]");
 
-    checkbox.addEventListener("change", (e) => {
-      console.log(e);
-      todo__item.classList.toggle("done");
-    });
-  });
-});
+actionsEl.appendChild(deleteEl);
+actionsEl.appendChild(editEl);
+            listEl.appendChild(actionsEl);
+            listEl.appendChild(taskEl); 
+        
+    })
+ 
+ } )
+    
+ /*var inpBtn = document.getElementById("btn");
+ const form = document.getElementById("forms");
+   form.addEventListener ('submit', (e) => {
+e.preventDefault();
+ 
+   })*/
+  
+//getting API from backend with AJAX and JSON.
+
+   /* function getTodoListFromBackend(){
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function(){
+            if (this.readyState === 4) {
+                var response=JSON.parse(this.responseText);
+                for (var i=0; i < response.length;i++){
+                    list .appendChild(createTODODynamically(response[i].id,response[i].title));
+                }
+            }
+        }
+        http.open('GET','https://jsonplaceholder.typicode.com/todos',true);
+        http.send('')
+
+    }
+    getTodoListFromBackend();*/
+
+
+ 
